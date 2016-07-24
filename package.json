@@ -1,0 +1,23 @@
+{
+  "name": "googlemapsapi",
+  "version": "1.0.0",
+  "description": "Playing with google maps api to build the web mapping applications.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/subashbhujel/googlemapsapi.git"
+  },
+  "author": "Subash Bhujel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/subashbhujel/googlemapsapi/issues"
+  },
+  "homepage": "https://github.com/subashbhujel/googlemapsapi#readme",
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "style-loader": "^0.13.1"
+  }
+}
