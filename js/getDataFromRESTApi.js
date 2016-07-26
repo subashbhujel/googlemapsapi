@@ -1,4 +1,4 @@
-function getData(id){    
+function getFakeData(id){    
     var urlBase ="https://observerestapi.azurewebsites.net/api/locations/"+id+"?jsoncallback=?"; 
     alert(urlBase);
     return $.getJSON(urlBase);
