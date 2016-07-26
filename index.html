@@ -36,11 +36,58 @@
       var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
     }
     google.maps.event.addDomListener(window, 'load', initialize);
+
+  function getData(id){    
+    var urlBase ="https://observerestapi.azurewebsites.net/api/locations/"+id+"?jsoncallback=?"; 
+    alert(urlBase);
+    return $.getJSON(urlBase);
+  }
+
+  function getLocationById(id) {
+    alert(id);
+    $.ajax({
+            url: "https://observerestapi.azurewebsites.net/api/locations",
+            type: "GET",
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'jsonp',
+            crossDomain:true,
+            success: function(resultData) {
+                //here is your json. Process it.
+                alert("Success!");
+            },
+            xhrFields: {
+                withCredentials: true
+            },
+            error : function(jqXHR, textStatus, errorThrown) {
+              alert(jqXHR.responseText);
+              alert("Error~");
+
+            },
+            timeout: 120000,
+        });
+
+    // $.getJSON("https://observerestapi.azurewebsites.net/api/locations/5790621310801848048ef533",function(data){
+    //   alert(data.length());
+    // })
+    // $.getJSON("https://observerestapi.azurewebsites.net/api/locations/5790621310801848048ef533")
+    // alert("getLocationById()");
+    // getData(id)
+    //     .done(function(data) {
+    //         alert("Data Loaded: ");
+    //     })
+    //     .fail(function() {
+    //       alert( "error" );
+    //     });
+        // .always(function() {
+        //   alert( "finished" );
+        // });
+    }
     </script>
   </head>
 
   <body>
-<script type="text/javascript" src="bundle.js" charset="utf-8"></script>
+    <!--<script type="text/javascript" src="js/getLocationById.js" charset="utf-8"></script>-->
+    <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -55,9 +102,9 @@
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
             <div class="form-group">
-              <input type="text" placeholder="Enter your id" class="form-control">
+              <input id="txtLocationId" type="text" placeholder="Enter your id" class="form-control">
             </div>
-            <button type="submit" class="btn btn-success">Search</button>
+            <button id="btnSubmit" type="submit" class="btn btn-success" onclick="getLocationById(txtLocationId.value)">Search</button>
           </form>
         </div>
       </div>
@@ -74,3 +121,4 @@
       </footer>   
   </body>
 </html>
+    
