@@ -42,22 +42,26 @@
             <div class="form-group">
               <input id="txtLocationId" type="text" placeholder="Enter your id" class="form-control">
             </div>
-            <button id="btnSubmit" type="submit" onclick="simpleMarker(txtLocationId.value)" class="btn btn-success">Search</button>
+            <!--onclick="simpleMarker(txtLocationId.value)"-->
+            <button id="btnSubmit" type="submit"  class="btn btn-success">Search</button>
           </form>
         </div>
       </div>
     </nav>
 
     <div>        
-      <div id="googleMap" style="width:100%;height:90%;">   
-      </div>
+      <div id="googleMap" style="width:100%;height:90%;"/> 
+      <!--<div id="googleMap2" style="width:100%;height:90%;" style="visibility: hidden"/>  -->
     </div>
 
       <footer >
         <p>&copy; 2016 Microsoft.</p>
       </footer> 
-      <!--Has to be at the bottom so DOM is completely rendered before the init() is called.-->
-      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnHAKnJfFhn0k6qhL941T9YFKRwyqbhcQ&callback=init"></script>  
+      <script>
+        // google.maps.event.addDomListener(window, 'load', initialize);
+      </script>
+        <!--Has to be at the bottom so DOM is completely rendered before the init() is called.-->
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnHAKnJfFhn0k6qhL941T9YFKRwyqbhcQ&callback=simpleMarker"></script>  
   </body>
 </html>
     

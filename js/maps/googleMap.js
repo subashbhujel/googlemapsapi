@@ -1,9 +1,11 @@
- var map;
+// var imgBoy = require("./image/boy.png");
+
+//  var map;
  var initialCenter;
  var initialZoom;
 
  function init() {
-     map = new google.maps.Map(document.getElementById('googleMap'), {
+     var map = new google.maps.Map(document.getElementById('googleMap'), {
          zoom: 3,
          center: {
              lat: 47.620499,
@@ -31,15 +33,16 @@
  function simpleMarker(id) {
      var currentLocation = getUserLocations(id)[0];
 
-     var m = new google.maps.Map(document.getElementById('googleMap'), {
-         zoom: 4,
-         center: currentLocation,
-         mapTypeId: google.maps.MapTypeId.TERRAIN
+     var map = new google.maps.Map(document.getElementById('googleMap'), {
+         zoom: 10,
+         center: currentLocation
      });
 
      var marker = new google.maps.Marker({
          position: currentLocation,
-         map: m,
+         map: map,
+         animation: google.maps.Animation.DROP,
+        //  icon: imgBoy,
          title: 'Hello World!'
      });
  }
@@ -75,8 +78,12 @@
      //  });
 
      var polyLine = getUserLocations();
-
      console.log("User data fetched.");
+
+     var map = new google.maps.Map(document.getElementById('googleMap'), {
+         zoom: 10,
+         center: polyLine[1]
+     });
 
      var flightPath = new google.maps.Polyline({
          path: polyLine,
@@ -87,8 +94,8 @@
      });
 
      var newCenter = new google.maps.LatLng(polyLine[0].lat, polyLine[0].lng);
-     //  map.setCenter(newCenter);
+     map.setCenter(newCenter);
      map.setZoom(12);
 
-     flightPath.setMap(map);
+     flightPath.setMap(m);
  }
