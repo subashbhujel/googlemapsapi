@@ -19,13 +19,13 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/maps/googleMap.js" charset="utf-8"></script>
-    <!--<script type="text/javascript" src="js/jsonData.js" charset="utf-8"></script>
-    <script type="text/javascript" src="js/getDataFromRESTApi.js" charset="utf-8"></script>    -->
+    <!--<script type="text/javascript" src="js/jsonData.js" charset="utf-8"></script>-->
+    <!--<script type="text/javascript" src="js/getDataFromRESTApi.js" charset="utf-8"></script>    -->
   </head>
 
   <body>
     <!--<script type="text/javascript" src="js/getLocationById.js" charset="utf-8"></script>-->
-    <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
+    <script type="text/javascript" src="app.bundle.js" charset="utf-8"></script>
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -43,7 +43,7 @@
               <input id="txtLocationId" type="text" placeholder="Enter your id" class="form-control">
             </div>
             <!--onclick="simpleMarker(txtLocationId.value)"-->
-            <button id="btnSubmit" type="submit"  class="btn btn-success">Search</button>
+            <button id="btnSubmit" type="submit" onclick="getLocationById(txtLocationId.value)" class="btn btn-success">Search</button>
           </form>
         </div>
       </div>
